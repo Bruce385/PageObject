@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author  : Bruce.Chen
 # @Time    : 2020/5/12 14:46
-# @File    : Screen.py
+# @File    : screen.py
 # @Software: PyCharm
 
 class ScreenOperation():
