@@ -9,13 +9,15 @@ from page.main_page import MainPage
 
 
 class App:
+    @classmethod
+    def __init__(cls):
+        cls.driver = webdriver.Remote(AppiumServerUrl, VirtualConnection)
+        cls.driver.implicitly_wait(10)
 
-    def __init__(self):
-        self.driver = webdriver.Remote(AppiumServerUrl, VirtualConnection)
-        self.driver.implicitly_wait(10)
+    @classmethod
+    def start(cls):
+        return MainPage(cls.driver)
 
-    def start(self):
-        return MainPage(self.driver)
-
-    def quit(self):
-        self.driver.quit()
+    @classmethod
+    def quit(cls):
+        cls.driver.quit()
