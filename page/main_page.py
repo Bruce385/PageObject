@@ -3,16 +3,15 @@
 # @Time    : 2020/5/16 12:06
 # @File    : main_page.py
 # @Software: PyCharm
-from appium.webdriver.webdriver import WebDriver
+from selenium.webdriver.common.by import By
 
+from page.base_page import BasePage
 from page.search_page import SearchPage
 
 
-class MainPage(object):
+class MainPage(BasePage):
+    _search_locator = (By.ID, "com.xueqiu.android:id/tv_search")
 
-    def __init__(self, driver: WebDriver):
-        self.driver = driver
-
-    def to_search(self):
-        self.driver.find_element_by_id("com.xueqiu.android:id/tv_search").click()
+    def to_search_page(self):
+        self.find_element(self._search_locator).click()
         return SearchPage(self.driver)
